@@ -1,132 +1,121 @@
-﻿<!DOCTYPE html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>13 Years With You</title>
+<title>13 Years With You 💙</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-body {
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(#0f2027, #203a43, #2c5364);
-  color: white;
-  text-align: center;
+body{
+    margin:0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(120deg,#0f2027,#203a43,#2c5364);
+    color:white;
+    text-align:center;
 }
-section {
-  min-height: 100vh;
-  padding: 50px 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-button {
-  margin-top: 30px;
-  padding: 12px 25px;
-  border: none;
-  border-radius: 25px;
-  font-size: 18px;
-  background: #ffb6c1;
-  cursor: pointer;
-}
-img {
-  max-width: 90%;
-  border-radius: 15px;
-  margin-top: 20px;
-}
-.hidden { display:none; }
-</style>
 
+section{
+    min-height:100vh;
+    padding:40px 20px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+img{
+    max-width:90%;
+    max-height:80vh;
+    border-radius:20px;
+    box-shadow:0 0 25px rgba(255,255,255,0.3);
+    margin:20px 0;
+}
+
+button{
+    padding:15px 40px;
+    font-size:20px;
+    border:none;
+    border-radius:50px;
+    background:#ff5f7e;
+    color:white;
+    cursor:pointer;
+    box-shadow:0 0 20px rgba(255,95,126,0.8);
+}
+
+.fade{
+    opacity:0;
+    transform:translateY(30px);
+    transition:1s ease;
+}
+
+.fade.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+h1,h2{
+    max-width:900px;
+}
+</style>
 </head>
+
 <body>
 
-<audio autoplay loop>
-  <source src="https://files.catbox.moe/9r3f8x.mp3" type="audio/mpeg">
+<audio id="music" loop>
+<source src="https://dl.dropboxusercontent.com/scl/fi/4grtb6ybk9knm2dr80s3v/Haaraye.mp3?rlkey=uqjoxgex8q2p1j7bhflpbl9hw&dl=1">
 </audio>
 
-<section id="p1">
-<h1>Hey you 👋</h1>
-<p>
-Yes, you.<br><br>
-Today is the 13th…<br>
-and someone amazing was born.
-</p>
-<button onclick="next(2)">Start</button>
+<section id="start">
+<h1>Hey Manya 💙</h1>
+<h2>13 years. One friendship. Infinite memories.</h2>
+<button onclick="start()">Start</button>
 </section>
 
-<section id="p2" class="hidden">
-<p>
-It’s been <b>13 years</b> since we became friends.<br><br>
-That’s 4,745 days of talking, laughing, fighting, and never giving up on each other.<br><br>
-Some people meet and forget.<br>
-We met… and stayed.
-</p>
-<button onclick="next(3)">Next</button>
-</section>
-
-<section id="p3" class="hidden">
-<p>
-We don’t have photos together…<br>
-but that just means we were too busy living the moments 💙
-</p>
-
+<section class="fade">
 <img src="baby.jpg">
+<h2>From the tiniest beginnings… you were already special.</h2>
+</section>
+
+<section class="fade">
 <img src="child.jpg">
-<img src="festive.jpg">
-<img src="mirror.jpg">
+<h2>We grew up, but you never lost that spark.</h2>
+</section>
+
+<section class="fade">
 <img src="collage.jpg">
-
-<button onclick="next(4)">Next</button>
+<h2>Every version of you has been beautiful.</h2>
 </section>
 
-<section id="p4" class="hidden">
-<p id="msg"></p>
-<button onclick="nextMsg()">Next Memory</button>
+<section class="fade">
+<img src="festive.jpg">
+<h2>You light up every room you walk into.</h2>
 </section>
 
-<section id="p5" class="hidden">
-<p>
-I wish I could be there today…<br><br>
-But even miles apart, you’re still one of the most important people in my life.<br><br>
-Thank you for 13 years of friendship, chaos, loyalty and memories.<br><br>
-Happy Birthday, bestie 🎂💙
-</p>
+<section class="fade">
+<img src="mirror.jpg">
+<h2>And you’re still becoming even more amazing.</h2>
+</section>
+
+<section class="fade">
+<h1>Happy Birthday, Bestie 🎂</h1>
+<h2>13 years of us… and this is just the beginning 💙</h2>
 </section>
 
 <script>
-let msgs = [
-"Year 1 – I didn’t know you’d become this important.",
-"Year 2 – We were just kids, but something real started.",
-"Year 3 – We learned how to annoy each other professionally.",
-"Year 4 – And somehow we still stayed.",
-"Year 5 – We started sharing secrets, not just jokes.",
-"Year 6 – You became my safe place.",
-"Year 7 – No matter what changed, you didn’t.",
-"Year 8 – Distance tried… and failed.",
-"Year 9 – Real friendships don’t fade.",
-"Year 10 – You were still my person.",
-"Year 11 – We grew up but stayed stupid together.",
-"Year 12 – Still talking. Still caring.",
-"Year 13 – And I’m not going anywhere."
-];
-let i = 0;
-
-function next(n){
-  document.querySelectorAll("section").forEach(s => s.classList.add("hidden"));
-  document.getElementById("p"+n).classList.remove("hidden");
-  if(n == 4) {
-    i = 0;
-    document.getElementById("msg").innerText = msgs[0];
-  }
+function start(){
+    document.getElementById("music").play();
+    window.scrollTo({top: window.innerHeight, behavior:'smooth'});
 }
 
-function nextMsg(){
-  i++;
-  if(i < msgs.length){
-    document.getElementById("msg").innerText = msgs[i];
-  } else {
-    next(5);
-  }
-}
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add("show");
+    }
+  });
+},{threshold:0.3});
+
+document.querySelectorAll(".fade").forEach(el=>observer.observe(el));
 </script>
 
 </body>
